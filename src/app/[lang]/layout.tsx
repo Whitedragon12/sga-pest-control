@@ -19,26 +19,28 @@ export const metadata: Metadata = {
   description: "Дезинсекция, дератизация и дезинфекция в Одессе",
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params,
 }: {
   children: React.ReactNode
-  params: { lang: "ru" | "ua" }
+  params: Promise<{ lang: string }>
 }) {
 
-  const lang = params.lang
+  const { lang } = await params
 
   return (
     <html lang={lang}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
       >
-        <Header lang={lang} />
+
+        <Header lang={lang as "ru" | "ua"} />
 
         {children}
 
-        <Footer lang={lang} />
+        <Footer lang={lang as "ru" | "ua"} />
+
       </body>
     </html>
   )
