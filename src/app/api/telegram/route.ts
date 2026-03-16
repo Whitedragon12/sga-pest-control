@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server"
 
-const TOKEN = "8765331231:AAGjRTI1zgvAuPaOq5tCJNpjQy21GAvCcCM"
+const TOKEN = process.env.TELEGRAM_TOKEN
 const CHAT_ID = -1003518722365
 
 export async function POST(req: Request) {
