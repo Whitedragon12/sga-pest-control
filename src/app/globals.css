@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+/* ---------- THEME COLORS ---------- */
+
+:root {
+
+  /* backgrounds */
+  --background: #0b0f14;
+  --section: #0f172a;
+  --card: #111827;
+
+  /* text */
+  --foreground: #f1f5f9;
+  --text-secondary: #94a3b8;
+
+  /* accent */
+  --accent: #22c55e;
+  --accent-hover: #16a34a;
+
+  /* borders */
+  --border: rgba(255,255,255,0.08);
+
+}
+
+/* ---------- GLOBAL ---------- */
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  overflow-x: hidden;
+}
+
+/* secondary text */
+
+p {
+  color: var(--text-secondary);
+}
+
+/* ---------- ANIMATIONS ---------- */
+
+@keyframes scaleIn {
+  from {
+    transform: scale(.9);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
