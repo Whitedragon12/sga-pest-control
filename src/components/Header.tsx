@@ -176,19 +176,19 @@ className="text-white"
 
 <div className="flex gap-4 mt-2">
 
-<a
-href="/ru"
-className={`${lang === "ru" ? "text-green-400" : ""}`}
->
-RU
-</a>
+  <Link
+    href="/ru"
+    className={`${lang === "ru" ? "text-green-400" : ""}`}
+  >
+    RU
+  </Link>
 
-<a
-href="/ua"
-className={`${lang === "ua" ? "text-green-400" : ""}`}
->
-UA
-</a>
+  <Link
+    href="/"
+    className={`${lang === "ua" ? "text-green-400" : ""}`}
+  >
+    UA
+  </Link>
 
 </div>
 
