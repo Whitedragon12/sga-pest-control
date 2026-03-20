@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
+import Link from "next/link"
 import Image from "next/image"
 
 export default function Header({ lang }: { lang: "ru" | "ua" }) {
@@ -83,21 +84,21 @@ SGA Pest Control
 
 <div className="hidden md:flex gap-2 text-sm">
 
-<a
-href="/ru"
-className={`${lang === "ru" ? "text-green-400" : "hover:text-green-400"}`}
->
-RU
-</a>
+  <Link
+    href="/ru"
+    className={`${lang === "ru" ? "text-green-400" : "hover:text-green-400"}`}
+  >
+    RU
+  </Link>
 
-<span className="opacity-40">|</span>
+  <span className="opacity-40">|</span>
 
-<a
-href="/ua"
-className={`${lang === "ua" ? "text-green-400" : "hover:text-green-400"}`}
->
-UA
-</a>
+  <Link
+    href="/"
+    className={`${lang === "ua" ? "text-green-400" : "hover:text-green-400"}`}
+  >
+    UA
+  </Link>
 
 </div>
 

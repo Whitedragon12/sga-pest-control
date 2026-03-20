@@ -8,17 +8,12 @@ import FAQ from "@/components/FAQ"
 import Contact from "@/components/Contact"
 import FloatingContact from "@/components/FloatingContact"
 
-export default async function Home({
-  params,
-}: {
-  params: Promise<{ lang: "ru" | "ua" }>
-}) {
+export default function Home() {
 
-  const { lang } = await params
+  const lang = "ru"
 
   return (
     <main>
-
       <Hero lang={lang} />
       <Services lang={lang} />
       <Works lang={lang} />
@@ -28,7 +23,6 @@ export default async function Home({
       <FAQ lang={lang} />
       <Contact lang={lang} />
       <FloatingContact lang={lang} />
-
     </main>
   )
 }
