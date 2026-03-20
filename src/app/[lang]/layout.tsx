@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title: "SGA Pest Control",
   description: "Дезинсекция, дератизация и дезинфекция в Одессе",
   verification: {
-    google: "MuQ4d2r4RyBZZqpz-7rXxxxxxxx"
+    google: "MuQ4d2r4RyBZZqpz-7rXS-PGmzrz7PDOj5Wi2I1kiac"
   }
 }
 
