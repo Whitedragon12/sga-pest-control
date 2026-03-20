@@ -20,7 +20,13 @@ export const metadata: Metadata = {
   description: "Дезинсекция, дератизация и дезинфекция в Одессе",
   verification: {
     google: "MuQ4d2r4RyBZZqpz-7rXS-PGmzrz7PDOj5Wi2I1kiac"
-  }
+  },
+  alternates: {
+    languages: {
+      "uk-UA": "https://sgapest.com.ua/",
+      "ru-UA": "https://sgapest.com.ua/ru",
+    },
+  },
 }
 
 export default function RootLayout({
