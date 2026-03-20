@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   alternates: {
     languages: {
-      "uk-UA": "https://sgapest.com.ua/",
+      "uk-UA": "https://sgapest.com.ua",
       "ru-UA": "https://sgapest.com.ua/ru",
     },
   },
