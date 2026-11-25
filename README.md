@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SGA Pest Control — сайт санітарної служби (Одеса)
 
-## Getting Started
+**Живий сайт:** https://sgapest.com.ua
 
-First, run the development server:
+Сайт компанії з дезінсекції, дератизації, дезінфекції та фумігації в Одесі. Головна мета — щоб відвідувач із телефона за кілька секунд подзвонив або залишив заявку.
+
+## Що вміє сайт
+
+- **Дві мови:** українська (`/`) і російська (`/ru`), окремі title та description для кожної, `hreflang`, `sitemap.xml`, `robots.txt`.
+- **Форма заявки:** ім'я, телефон, послуга. Заявка йде на серверний маршрут `/api/telegram` і далі в Telegram власника. Токен бота зберігається лише у змінних середовища.
+- **Перевірка полів:** помилка під кожним полем; номер приводиться до формату `+380 (XX) XXX-XX-XX`, навіть якщо ввести його з 0, 380 чи +38.
+- **Чесні помилки:** якщо відправка не вдалась, користувач бачить повідомлення з номером телефону, а введені дані не губляться.
+- **Мобільна версія:** нижня панель «Подзвонити | Заявка», що ховається біля форми та футера; на комп'ютері — номер телефону в шапці, яка лишається вгорі.
+- **Вікно заявки:** блокує прокрутку сторінки, закривається Esc, ✕ або кліком по фону; має `role="dialog"` і утримує фокус усередині.
+- Послуги, галерея робіт, етапи обробки, сертифікати, FAQ.
+
+## Технології
+
+Next.js (App Router), TypeScript, Tailwind CSS.
+
+## Аудит і виправлення (листопад 2026)
+
+Перевірив живий сайт і виправив сім помилок:
+
+1. Головна кнопка «Замовити обробку» та логотип вели на сторінку 404 (`/ua`).
+2. Форма могла відправити заявку без номера телефону: маска `+380 (__)…` вважалась заповненим полем.
+3. Форма показувала «успіх», навіть коли Telegram не прийняв заявку, бо API приховував помилку.
+4. У списку послуг не було фумігації.
+5. Російська версія мала `lang="uk"` і неперекладене меню.
+6. Обидві мови мали однакові title та description, а опис української сторінки був російською.
+7. Кнопки дзвінка на комп'ютері відкривали `alert()` замість посилання `tel:`.
+
+## Локальний запуск
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Для відправки заявок потрібні змінні середовища з даними Telegram-бота (див. маршрут `/api/telegram`).
