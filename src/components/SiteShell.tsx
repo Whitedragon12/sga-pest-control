@@ -20,7 +20,7 @@ export default function SiteShell({
 
   return (
     <html lang={lang === "ua" ? "uk" : "ru"}>
-      <body className={className}>
+      <body className={`${className} pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)] pb-[calc(3.5rem+env(safe-area-inset-bottom))] lg:pb-0`}>
 
         <Header lang={lang} />
 

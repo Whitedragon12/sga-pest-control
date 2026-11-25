@@ -15,9 +15,9 @@ export default function Header({ lang }: { lang: "ru" | "ua" }) {
 
   return (
 
-<header className="sticky top-0 z-50 bg-black/80 backdrop-blur border-b border-white/10">
+<header className="sticky top-0 z-50 pt-[env(safe-area-inset-top)] bg-black/80 backdrop-blur border-b border-white/10">
 
-<div className="max-w-7xl mx-auto px-4 md:px-6 h-16 md:h-20 flex items-center justify-between">
+<div className="max-w-7xl mx-auto px-4 lg:px-6 h-16 lg:h-20 flex items-center justify-between">
 
 {/* LOGO */}
 
@@ -34,7 +34,7 @@ height={44}
 className="rounded-full"
 />
 
-<span className="text-base md:text-lg font-semibold tracking-wide">
+<span className="text-base lg:text-lg font-semibold tracking-wide">
 SGA Pest Control
 </span>
 
@@ -42,7 +42,7 @@ SGA Pest Control
 
 {/* DESKTOP NAV */}
 
-<nav className="hidden md:flex items-center gap-8 text-sm text-slate-300">
+<nav className="hidden lg:flex items-center gap-8 text-sm text-slate-300">
 
 <a href="#services" className="hover:text-green-400 transition">
 {t.nav.services}
@@ -68,7 +68,7 @@ SGA Pest Control
 
 {/* LANGUAGE SWITCH DESKTOP */}
 
-<div className="hidden md:flex gap-2 text-sm">
+<div className="hidden lg:flex gap-2 text-sm">
 
   <Link
     href="/ru"
@@ -93,7 +93,7 @@ SGA Pest Control
 <a
 href={PHONE_HREF}
 className="
-hidden md:flex
+hidden lg:flex
 items-center
 gap-2
 bg-green-500
@@ -112,7 +112,7 @@ transition
 
 {/* MOBILE BUTTONS */}
 
-<div className="flex items-center gap-3 md:hidden">
+<div className="flex items-center gap-3 lg:hidden">
 
 <a
 href={PHONE_HREF}
@@ -138,7 +138,7 @@ className="text-white"
 
 {open && (
 
-<div className="md:hidden bg-black border-t border-white/10">
+<div className="lg:hidden bg-black border-t border-white/10 max-h-[calc(100dvh-4rem-1px-env(safe-area-inset-top))] overflow-y-auto overscroll-contain">
 
 <div className="flex flex-col p-6 gap-5 text-lg">
 

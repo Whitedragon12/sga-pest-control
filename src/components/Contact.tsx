@@ -12,7 +12,7 @@ function scrollToResult(el: HTMLElement | null) {
   el?.scrollIntoView({ block: "center" })
 }
 
-export default function Contact({ lang }: { lang: "ru" | "ua" }) {
+export default function Contact({ lang, headingId }: { lang: "ru" | "ua"; headingId?: string }) {
 
   const t = getDictionary(lang)
 
@@ -134,7 +134,7 @@ export default function Contact({ lang }: { lang: "ru" | "ua" }) {
 
       <div className="max-w-3xl mx-auto px-6">
 
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">
+        <h2 id={headingId} className="text-3xl md:text-4xl font-bold text-center mb-6">
           {t.contact.title}
         </h2>
 

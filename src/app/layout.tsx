@@ -1,6 +1,6 @@
 import SiteShell from "@/components/SiteShell"
 import Footer from "@/components/Footer"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { getDictionary } from "@/i18n"
 import "./globals.css"
@@ -15,6 +15,11 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 })
+
+// lets env(safe-area-inset-bottom) work on iPhones, for the bottom bar
+export const viewport: Viewport = {
+  viewportFit: "cover",
+}
 
 export const metadata: Metadata = {
   ...getDictionary("ua").meta,
