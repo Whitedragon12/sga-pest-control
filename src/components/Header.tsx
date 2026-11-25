@@ -4,28 +4,14 @@ import { useState } from "react"
 import { Menu, X } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { getDictionary } from "@/i18n"
+import { PHONE_HREF, PHONE_TEXT } from "@/lib/phone"
 
 export default function Header({ lang }: { lang: "ru" | "ua" }) {
 
   const [open, setOpen] = useState(false)
 
-  const handleCall = () => {
-
-    if (typeof window === "undefined") return
-
-    if (window.innerWidth < 768) {
-      window.location.href = "tel:+380969984248"
-      return
-    }
-
-    navigator.clipboard?.writeText("+380969984248")
-
-    alert(
-      lang === "ua"
-        ? "Номер скопійовано: +38 (096) 998-42-48"
-        : "Номер скопирован: +38 (096) 998-42-48"
-    )
-  }
+  const t = getDictionary(lang)
 
   return (
 
@@ -35,8 +21,8 @@ export default function Header({ lang }: { lang: "ru" | "ua" }) {
 
 {/* LOGO */}
 
-<a
-href={`/${lang}`}
+<Link
+href={lang === "ua" ? "/" : "/ru"}
 className="flex items-center gap-3"
 >
 
@@ -52,26 +38,26 @@ className="rounded-full"
 SGA Pest Control
 </span>
 
-</a>
+</Link>
 
 {/* DESKTOP NAV */}
 
 <nav className="hidden md:flex items-center gap-8 text-sm text-slate-300">
 
 <a href="#services" className="hover:text-green-400 transition">
-{lang === "ua" ? "Послуги" : "Услуги"}
+{t.nav.services}
 </a>
 
 <a href="#process" className="hover:text-green-400 transition">
-{lang === "ua" ? "Процес" : "Процесс"}
+{t.nav.process}
 </a>
 
 <a href="#certificates" className="hover:text-green-400 transition">
-{lang === "ua" ? "Сертифікати" : "Сертификаты"}
+{t.nav.certificates}
 </a>
 
 <a href="#contact" className="hover:text-green-400 transition">
-{lang === "ua" ? "Контакти" : "Контакты"}
+{t.nav.contacts}
 </a>
 
 </nav>
@@ -104,8 +90,8 @@ SGA Pest Control
 
 {/* CALL BUTTON DESKTOP */}
 
-<button
-onClick={handleCall}
+<a
+href={PHONE_HREF}
 className="
 hidden md:flex
 items-center
@@ -121,19 +107,19 @@ font-medium
 transition
 "
 >
-📞 +38 (096) 998-42-48
-</button>
+📞 {PHONE_TEXT}
+</a>
 
 {/* MOBILE BUTTONS */}
 
 <div className="flex items-center gap-3 md:hidden">
 
-<button
-onClick={handleCall}
+<a
+href={PHONE_HREF}
 className="bg-green-500 p-2.5 rounded-full"
 >
 📞
-</button>
+</a>
 
 <button
 onClick={() => setOpen(!open)}
@@ -157,19 +143,19 @@ className="text-white"
 <div className="flex flex-col p-6 gap-5 text-lg">
 
 <a href="#services" onClick={()=>setOpen(false)}>
-{lang === "ua" ? "Послуги" : "Услуги"}
+{t.nav.services}
 </a>
 
 <a href="#process" onClick={()=>setOpen(false)}>
-{lang === "ua" ? "Процес" : "Процесс"}
+{t.nav.process}
 </a>
 
 <a href="#certificates" onClick={()=>setOpen(false)}>
-{lang === "ua" ? "Сертифікати" : "Сертификаты"}
+{t.nav.certificates}
 </a>
 
 <a href="#contact" onClick={()=>setOpen(false)}>
-{lang === "ua" ? "Контакти" : "Контакты"}
+{t.nav.contacts}
 </a>
 
 {/* LANGUAGE SWITCH MOBILE */}
@@ -192,12 +178,12 @@ className="text-white"
 
 </div>
 
-<button
-onClick={handleCall}
-className="bg-green-500 py-3 rounded-lg mt-4"
+<a
+href={PHONE_HREF}
+className="bg-green-500 py-3 rounded-lg mt-4 text-center"
 >
-{lang === "ua" ? "Подзвонити" : "Позвонить"}
-</button>
+{t.nav.call}
+</a>
 
 </div>
 

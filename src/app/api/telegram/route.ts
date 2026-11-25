@@ -19,7 +19,7 @@ export async function POST(req: Request) {
 
     const url = `https://api.telegram.org/bot${TOKEN}/sendMessage`
 
-    await fetch(url, {
+    const response = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -29,6 +29,17 @@ export async function POST(req: Request) {
         text: message
       })
     })
+
+    if (!response.ok) {
+
+      console.error("Telegram error:", response.status)
+
+      return NextResponse.json(
+        { success: false },
+        { status: 502 }
+      )
+
+    }
 
     return NextResponse.json({ success: true })
 

@@ -1,3 +1,5 @@
+import type { Metadata } from "next"
+import { getDictionary } from "@/i18n"
 import Hero from "@/components/Hero"
 import Services from "@/components/Services"
 import Works from "@/components/Works"
@@ -7,6 +9,8 @@ import Certificates from "@/components/Certificates"
 import FAQ from "@/components/FAQ"
 import Contact from "@/components/Contact"
 import FloatingContact from "@/components/FloatingContact"
+
+export const metadata: Metadata = getDictionary("ua").meta
 
 export default function Home() {
 

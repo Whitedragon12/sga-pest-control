@@ -1,53 +1,11 @@
 "use client"
 
 import { getDictionary } from "@/i18n"
+import { PHONE_HREF } from "@/lib/phone"
 
 export default function Hero({ lang }: { lang: "ru" | "ua" }) {
 
   const t = getDictionary(lang)
-
-  const handleCall = () => {
-
-    if (typeof window === "undefined") return
-
-    if (window.innerWidth < 768) {
-      window.location.href = "tel:+380969984248"
-      return
-    }
-
-    try {
-
-      if (navigator.clipboard) {
-
-        navigator.clipboard.writeText("+380969984248")
-
-        alert(
-          lang === "ua"
-            ? "Номер скопійовано: +38 (096) 998-42-48"
-            : "Номер скопирован: +38 (096) 998-42-48"
-        )
-
-      } else {
-
-        alert(
-          lang === "ua"
-            ? "Подзвоніть: +38 (096) 998-42-48"
-            : "Позвоните: +38 (096) 998-42-48"
-        )
-
-      }
-
-    } catch {
-
-      alert(
-        lang === "ua"
-          ? "Подзвоніть: +38 (096) 998-42-48"
-          : "Позвоните: +38 (096) 998-42-48"
-      )
-
-    }
-
-  }
 
   return (
 
@@ -76,18 +34,18 @@ export default function Hero({ lang }: { lang: "ru" | "ua" }) {
         <div className="flex flex-col sm:flex-row gap-4">
 
           <a
-            href={`/${lang}#contact`}
+            href="#contact"
             className="bg-green-500 hover:bg-green-600 px-6 py-3 rounded-lg font-semibold text-center"
           >
             {t.hero.order}
           </a>
 
-          <button
-            onClick={handleCall}
-            className="border border-white px-6 py-3 rounded-lg hover:bg-white hover:text-black transition"
+          <a
+            href={PHONE_HREF}
+            className="border border-white px-6 py-3 rounded-lg hover:bg-white hover:text-black transition text-center"
           >
             {t.hero.call}
-          </button>
+          </a>
 
         </div>
 
